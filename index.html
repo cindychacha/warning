@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>[재산세 누락분 납부 고지] 미납 세액 확인 요망</title>
+<meta name="description" content="귀하 명의 재산세 누락분이 확인되어 고지합니다. 납부기한 경과 시 가산세가 부과될 수 있습니다.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="[최종 고지] 재산세 누락분 납부 안내">
+<meta property="og:description" content="귀하 명의 재산세 누락분이 확인되었습니다. 고지 내용을 즉시 확인하시기 바랍니다.">
+<meta property="og:site_name" content="지방세 전자고지">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="[최종 고지] 재산세 누락분 납부 안내">
+<meta name="twitter:description" content="귀하 명의 재산세 누락분이 확인되었습니다. 고지 내용을 즉시 확인하시기 바랍니다.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;900&family=Nanum+Pen+Script&display=swap" rel="stylesheet">
+<style>
+:root{
+  --desk:#dfe3e8; --paper:#ffffff; --ink:#1d232b; --muted:#5d6672;
+  --line:#c9ced6; --gov:#123f7a; --warn:#c8161d; --warnbg:#fff1f1;
+  --soft:#fbf6ef; --rose:#e9a7a1; --babyink:#3a2e2a;
+  color-scheme:light;
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px);
+  padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --desk:#14181d; --paper:#1f252c; --ink:#e8ebef; --muted:#a3acb7;
+    --line:#38414b; --gov:#7fa8e0; --warn:#ff5a5f; --warnbg:#3a1d20;
+    --soft:#2a2420; --rose:#d48a84; --babyink:#f1e4da;
+    color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --desk:#14181d; --paper:#1f252c; --ink:#e8ebef; --muted:#a3acb7;
+  --line:#38414b; --gov:#7fa8e0; --warn:#ff5a5f; --warnbg:#3a1d20;
+  --soft:#2a2420; --rose:#d48a84; --babyink:#f1e4da; color-scheme:dark;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:var(--desk);color:var(--ink);
+  font-family:"Noto Sans KR",-apple-system,"Apple SD Gothic Neo","Malgun Gothic",sans-serif;
+  line-height:1.6;-webkit-font-smoothing:antialiased}
+.sheet{max-width:560px;margin:0 auto;background:var(--paper);min-height:100vh;
+  box-shadow:0 0 0 1px var(--line)}
+
+/* 관공서 헤더 */
+.gov{background:var(--gov);color:#fff;padding:14px 20px;display:flex;align-items:center;gap:10px}
+:root[data-theme="dark"] .gov{color:#0d1a2c}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .gov{color:#0d1a2c}}
+.emblem{width:30px;height:30px;border-radius:50%;border:2px solid currentColor;display:grid;place-items:center;font-weight:900;font-size:13px;flex:none}
+.gov b{display:block;font-size:15px;letter-spacing:-.02em}
+.gov small{font-size:11.5px;opacity:.85}
+
+.alert{background:var(--warnbg);color:var(--warn);border-bottom:2px solid var(--warn);
+  padding:10px 20px;font-size:13.5px;font-weight:700;display:flex;gap:8px;align-items:flex-start}
+.alert span:first-child{flex:none}
+
+.body{padding:26px 20px 8px;position:relative}
+h1{font-size:25px;line-height:1.3;margin:0 0 6px;font-weight:900;letter-spacing:-.03em}
+.sub{color:var(--muted);font-size:13.5px;margin:0 0 22px}
+
+.stamp{position:absolute;right:16px;top:18px;width:92px;height:92px;border:3px solid var(--warn);
+  border-radius:50%;color:var(--warn);display:grid;place-items:center;text-align:center;
+  font-weight:900;font-size:15px;line-height:1.15;transform:rotate(-14deg);opacity:.85;
+  box-shadow:inset 0 0 0 3px var(--paper),inset 0 0 0 5px var(--warn)}
+
+dl.info{margin:0 0 22px;border-top:2px solid var(--ink)}
+dl.info div{display:grid;grid-template-columns:96px 1fr;border-bottom:1px solid var(--line);font-size:14px}
+dl.info dt{background:color-mix(in srgb,var(--line) 35%,transparent);padding:9px 10px;color:var(--muted);font-weight:500}
+dl.info dd{margin:0;padding:9px 12px;font-weight:500}
+
+.amount{border:2px solid var(--warn);padding:16px;margin:0 0 22px;text-align:center}
+.amount p{margin:0;font-size:13px;color:var(--muted)}
+.amount strong{display:block;font-size:30px;color:var(--warn);font-weight:900;letter-spacing:-.02em;margin:2px 0}
+.amount em{font-style:normal;font-size:12.5px;color:var(--warn);font-weight:700}
+
+.notice{font-size:13.5px;color:var(--muted);margin:0 0 26px;padding-left:16px}
+.notice li{margin-bottom:6px}
+
+h2{font-size:16px;margin:0 0 10px;font-weight:700}
+.wrap{overflow-x:auto;margin-bottom:10px}
+table{width:100%;border-collapse:collapse;font-size:13.5px;min-width:360px}
+th,td{border:1px solid var(--line);padding:9px 8px;text-align:left;vertical-align:top}
+th{background:color-mix(in srgb,var(--line) 35%,transparent);font-weight:500;color:var(--muted);white-space:nowrap}
+td.num{text-align:right;font-weight:700;white-space:nowrap}
+tr.odd td{color:var(--warn)}
+.foot{font-size:12px;color:var(--muted);margin:0 0 28px}
+.sec{margin-bottom:30px}
+.sec .foot{margin-bottom:0}
+.sec .notice{margin-bottom:0}
+.sec dl.info{margin-bottom:0}
+.desc{font-size:13.5px;color:var(--muted);margin:0 0 10px}
+
+/* 절취선 */
+.tear{position:relative;margin:10px 0 0;height:40px;display:flex;align-items:center;justify-content:center}
+.tear::before{content:"";position:absolute;left:0;right:0;top:50%;border-top:2px dashed var(--line)}
+.tear span{position:relative;background:var(--paper);padding:0 12px;font-size:12.5px;color:var(--muted)}
+
+/* 반전 */
+.reveal{background:var(--soft);padding:44px 22px 60px;text-align:center}
+.reveal .hand{font-family:"Nanum Pen Script","Noto Sans KR",cursive}
+.reveal .lead{font-size:20px;color:var(--muted);margin:0}
+.reveal .big{font-family:"Nanum Pen Script",cursive;font-size:58px;line-height:1.05;color:var(--babyink);margin:6px 0 26px}
+
+.scan{margin:0 auto 26px;max-width:340px;background:#000;padding:12px 12px 10px;border-radius:4px;
+  transform:rotate(-2deg);box-shadow:0 10px 30px rgba(0,0,0,.25)}
+.scan .frame{aspect-ratio:4/3;background:radial-gradient(ellipse 70% 90% at 50% 0%,#3b3b3b 0%,#161616 60%,#000 100%);
+  display:grid;place-items:center;color:#9a9a9a;font-size:13px;overflow:hidden}
+.scan .frame img{width:100%;height:100%;object-fit:cover;display:block}
+.scan .meta{display:flex;justify-content:space-between;color:#cfcfcf;font-size:10.5px;margin-top:6px;font-family:"Noto Sans KR",sans-serif}
+
+.letter{max-width:380px;margin:0 auto;text-align:left;font-family:"Nanum Pen Script",cursive;
+  font-size:26px;line-height:1.45;color:var(--babyink)}
+.letter p{margin:0 0 14px}
+.sign{text-align:right;margin-top:18px}
+
+.due{display:inline-block;margin:30px auto 0;border:2px solid var(--rose);color:var(--babyink);
+  padding:10px 18px;border-radius:999px;font-size:15px;font-weight:700}
+.paid{margin-top:26px;color:var(--rose);font-weight:900;font-size:14px}
+
+/* 하나의 연출: 절취선 지나면 스탬프가 바뀜 */
+.reveal-inner{opacity:0;transform:translateY(14px);transition:opacity .9s ease,transform .9s ease}
+.reveal.on .reveal-inner{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){.reveal-inner{opacity:1;transform:none;transition:none}}
+</style>
+</head>
+<body>
+<main class="sheet">
+  <header class="gov">
+    <div class="emblem">세</div>
+    <div><b>지방세 전자고지서</b><small>세무과 재산세팀</small></div>
+  </header>
+
+  <div class="alert" role="alert"><span>⚠</span><span>본 고지서는 기한 내 미확인 시 가산 사유가 될 수 있습니다. 끝까지 확인하시기 바랍니다.</span></div>
+
+  <section class="body">
+    <div class="stamp" aria-hidden="true">최종<br>고지</div>
+    <h1>재산세 누락분<br>납부 고지서</h1>
+    <p class="sub">전산 대사 과정에서 귀하 명의의 미신고 재산이 확인되었습니다.</p>
+
+    <dl class="info">
+      <div><dt>납세자</dt><dd>차경찬, 이민우 귀하</dd></div>
+      <div><dt>전자납부번호</dt><dd>11-2026-0715-****</dd></div>
+      <div><dt>과세연도</dt><dd>2026년 귀속 (추가 고지)</dd></div>
+      <div><dt>고지 사유</dt><dd>과세대상 재산 신규 발생 미신고</dd></div>
+    </dl>
+
+    <div class="amount">
+      <p>납부할 세액 합계</p>
+      <strong>₩ 12,630,000</strong>
+      <em>세부 내역은 아래 과세 명세에서 확인</em>
+    </div>
+
+    <ol class="notice">
+      <li>본 고지는 「지방세기본법」에 따른 추가 고지입니다.</li>
+      <li>이의가 있는 경우 고지서 수령일로부터 90일 이내 신청할 수 있습니다.</li>
+      <li>과세 명세는 반드시 끝까지 읽어 주십시오.</li>
+    </ol>
+
+    <section class="sec">
+      <h2>납부기한 및 가산세</h2>
+      <div class="wrap">
+        <table>
+          <thead><tr><th>구분</th><th>기한</th><th>적용 내용</th></tr></thead>
+          <tbody>
+            <tr><td>납기 내</td><td>고지일로부터 30일</td><td>고지 세액 납부</td></tr>
+            <tr><td>납기 후 1개월</td><td>납기 경과 즉시</td><td>납부지연가산세 3% 부과</td></tr>
+            <tr><td>납기 후 2개월~</td><td>매 1개월마다</td><td>중가산세 0.75%씩 추가 (최대 60개월)</td></tr>
+            <tr><td>체납 처분</td><td>독촉 후 미납 시</td><td>재산 압류 및 공매 절차 진행</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="foot">※ 가산세는 납부일 기준으로 자동 계산되며 별도 고지 없이 부과됩니다.</p>
+    </section>
+
+    <section class="sec">
+      <h2>체납 시 불이익</h2>
+      <ol class="notice">
+        <li>체납액 500만 원 이상 시 신용정보기관에 체납 정보가 제공될 수 있습니다.</li>
+        <li>예금, 급여, 부동산 등 재산에 대한 압류가 진행될 수 있습니다.</li>
+        <li>고액·상습 체납자의 경우 출국금지 요청 및 명단 공개 대상이 될 수 있습니다.</li>
+        <li>관허사업의 제한 및 각종 행정 서비스 이용이 제한될 수 있습니다.</li>
+      </ol>
+    </section>
+
+    <section class="sec">
+      <h2>납부 방법</h2>
+      <dl class="info">
+        <div><dt>인터넷</dt><dd>지방세 납부 사이트에서 전자납부번호 입력</dd></div>
+        <div><dt>가상계좌</dt><dd>고지서 하단 납세자 전용 계좌로 이체</dd></div>
+        <div><dt>금융기관</dt><dd>전국 은행·우체국 창구 및 CD/ATM</dd></div>
+        <div><dt>카드납부</dt><dd>신용·체크카드 (무이자 할부는 카드사별 상이)</dd></div>
+      </dl>
+    </section>
+
+    <section class="sec">
+      <h2>과세 근거</h2>
+      <p class="desc">본 처분은 「지방세법」 제104조 및 제107조에 따른 재산세 과세대상에 해당하며, 과세기준일 현재 사실상 재산을 소유하고 있는 자에게 부과됩니다. 신규 취득 재산에 대한 신고가 누락되어 전산 대사 과정에서 확인되었으므로, 이에 따라 추가로 고지합니다.</p>
+      <p class="desc">고지된 세액에 이의가 있는 경우 「지방세기본법」에 따라 이의신청, 심판청구 등 불복 절차를 밟을 수 있으나, 불복 절차 진행 중에도 납부 의무는 정지되지 않습니다.</p>
+    </section>
+
+    <h2>과세 명세</h2>
+    <div class="wrap">
+      <table>
+        <thead><tr><th>세목</th><th>과세대상</th><th>세액</th></tr></thead>
+        <tbody>
+          <tr><td>재산세</td><td>주택분 누락 재산 1건</td><td class="num">별도 산정</td></tr>
+          <tr><td>지방교육세</td><td>위 재산 연동분</td><td class="num">별도 산정</td></tr>
+          <tr class="odd"><td>사랑세</td><td>신규 재산 (키 약 <span id="size">○</span>cm)</td><td class="num">무한대</td></tr>
+          <tr class="odd"><td>가산세</td><td>귀여움 과다 보유</td><td class="num">감당 불가</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="foot">※ 신규 재산의 상세 내역은 절취선 아래에 첨부합니다.</p>
+
+    <div class="tear" id="tear"><span>✂ 여기부터 첨부 서류</span></div>
+  </section>
+
+  <section class="reveal" id="reveal">
+    <div class="reveal-inner">
+      <p class="lead hand">누락된 재산은 바로…</p>
+      <p class="big">저예요!</p>
+
+      <figure class="scan" style="margin-left:auto;margin-right:auto">
+        <div class="frame" id="photo">초음파 사진 자리</div>
+        <div class="meta"><span id="scanName">OO산부인과</span><span id="scanWeek">○주 ○일</span></div>
+      </figure>
+
+      <div class="letter">
+        <p>할머니, 할아버지, 그리고 우리 가족 여러분 안녕하세요!</p>
+        <p>저는 지금 엄마 뱃속에서 콩콩 잘 자라고 있는 아기예요. 아직 작지만 심장은 아주 씩씩하게 뛰고 있어요.</p>
+        <p>놀라셨죠? 세금은 하나도 안 내셔도 돼요. 대신 저 태어나면 많이 안아 주시고, 많이 사랑해 주세요.</p>
+        <p class="sign">곧 만나요 ♡<br><span id="babyName">똘망</span> 올림</p>
+      </div>
+
+      <div class="due" id="due">출산 예정일 2027년 7월 25일</div>
+      <p class="paid">납부 방법: 사랑으로 일시납</p>
+    </div>
+  </section>
+</main>
+
+<script>
+/* ===== 여기만 바꾸시면 됩니다 ===== */
+const CONFIG = {
+  babyName: "똘망",                 // 태명
+  dueDate:  "2027년 7월 25일",
+  week:     "○주 ○일",
+  hospital: "OO산부인과",
+  size:     "○",                    // 지금 크기(cm)
+  photo:    ""                      // 초음파 사진 data:image/... (비워두면 자리 표시)
+};
+/* ================================== */
+document.getElementById('babyName').textContent = CONFIG.babyName;
+document.getElementById('due').textContent = '출산 예정일 ' + CONFIG.dueDate;
+document.getElementById('scanWeek').textContent = CONFIG.week;
+document.getElementById('scanName').textContent = CONFIG.hospital;
+document.getElementById('size').textContent = CONFIG.size;
+if (CONFIG.photo) {
+  const img = new Image(); img.src = CONFIG.photo; img.alt = '초음파 사진';
+  const f = document.getElementById('photo'); f.textContent = ''; f.appendChild(img);
+}
+const reveal = document.getElementById('reveal');
+const io = new IntersectionObserver(es => {
+  es.forEach(e => { if (e.isIntersecting) { reveal.classList.add('on'); io.disconnect(); } });
+}, { threshold: 0.15 });
+io.observe(reveal);
+</script>
+</body>
+</html>
