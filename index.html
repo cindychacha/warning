@@ -119,8 +119,22 @@ tr.odd td{color:var(--warn)}
 .scan .frame img{width:100%;height:100%;object-fit:cover;display:block}
 .scan .meta{display:flex;justify-content:space-between;color:#cfcfcf;font-size:10.5px;margin-top:6px;font-family:"Noto Sans KR",sans-serif}
 
-.letter{max-width:380px;margin:0 auto;text-align:left;font-family:"Nanum Pen Script",cursive;
-  font-size:26px;line-height:1.45;color:var(--babyink)}
+@font-face {
+  font-family: 'YoonManSeh';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/2408@1.0/YoonChildfundkoreaManSeh.woff2') format('woff2');
+  font-weight: 400;
+  font-display: swap;
+}
+
+.letter {
+  max-width: 380px;
+  margin: 0 auto;
+  text-align: left;
+  font-family: 'YoonManSeh', sans-serif;
+  font-size: 26px;
+  line-height: 1.6;
+  color: var(--babyink);
+}
 .letter p{margin:0 0 14px}
 .sign{text-align:right;margin-top:18px}
 
@@ -233,14 +247,14 @@ tr.odd td{color:var(--warn)}
 
       <figure class="scan" style="margin-left:auto;margin-right:auto">
         <div class="frame" id="photo">초음파 사진 자리</div>
-        <div class="meta"><span id="scanName">OO산부인과</span><span id="scanWeek">○주 ○일</span></div>
+        <div class="meta"><span id="scanName">리즈산부인과</span><span id="scanWeek">5주 3일</span></div>
       </figure>
 
       <div class="letter">
         <p>할머니, 할아버지, 그리고 우리 가족 여러분 안녕하세요!</p>
         <p>저는 지금 엄마 뱃속에서 콩콩 잘 자라고 있는 아기예요. 아직 작지만 심장은 아주 씩씩하게 뛰고 있어요.</p>
         <p>놀라셨죠? 세금은 하나도 안 내셔도 돼요. 대신 저 태어나면 많이 안아 주시고, 많이 사랑해 주세요.</p>
-        <p class="sign">곧 만나요 ♡<br><span id="babyName">똘망</span> 올림</p>
+        <p class="sign">곧 만나요 ♡<br><span id="babyName">똘망이</span> 올림</p>
       </div>
 
       <div class="due" id="due">출산 예정일 2027년 7월 25일</div>
